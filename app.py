@@ -3,7 +3,9 @@ from bs4 import BeautifulSoup
 import requests as r
 import streamlit as st
 
-st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Search Engine Scraper</h1>', unsafe_allow_html=True)
+
+st.set_page_config(layout="wide")
+st.markdown('<h1 style="padding-left: 10px; padding-bottom: 20px;">M-SIG Search Engine Scraper</h1>', unsafe_allow_html=True)
 query = st.text_input('', help='Enter the search string and hit Enter/Return')
 query = query.replace(" ", "+") #replacing the spaces in query result with +
 
@@ -30,7 +32,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
                 description = "" if individual_search_result.find('p') is None else individual_search_result.find('p').text
                 #Appending the result data frame after processing each individual search result
                 result_df = result_df.append(pd.DataFrame({"Title": url_txt, "URL": href, "Description": description}, index=[n]))
-                count_str = f'<b style="font-size:20px;">Bing Search returned {len(result_df)} results</b>'
+                count_str = f'<b style="font-size:20px;">Search returned {len(result_df)} results</b>'
                 ########################################################
                 ######### HTML code to display search results ##########
                 ########################################################
