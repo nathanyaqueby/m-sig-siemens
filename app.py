@@ -91,7 +91,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         result_str = '<html></html>'
         count_str = '<b style="font-size:20px;">Looks like an error!!</b>'
     
-    st.markdown(f'{count_str}', unsafe_allow_html=True)
-    st.markdown(f'{result_str}', unsafe_allow_html=True)
-    st.markdown('<h3>Dataframe of the above search result</h3>', unsafe_allow_html=True)
-    st.dataframe(result_df)
+    # st.markdown(f'{count_str}', unsafe_allow_html=True)
+    # st.markdown(f'{result_str}', unsafe_allow_html=True)
+    # st.markdown('<h3>Dataframe of the above search result</h3>', unsafe_allow_html=True)
+    # st.dataframe(result_df)
