@@ -7,8 +7,6 @@ from GoogleNews import GoogleNews
 import warnings
 warnings.filterwarnings('ignore')
 from gnews import GNews
-from newspaper import Article
-from newspaper import Config
 
 user_agent = 'Mozilla/5.0'
 
