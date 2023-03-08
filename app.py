@@ -20,7 +20,7 @@ config.request_timeout = 10
 st.set_page_config(layout="wide")
 st.markdown('<h1 style="padding-left: 10px; padding-bottom: 20px;">M-SIG Search Engine Scraper</h1>', unsafe_allow_html=True)
 query = st.text_input('', help='Enter the search string and hit Enter/Return')
-query = query.replace(" ", "+") #replacing the spaces in query result with +
+query = query.replace(" ", ",") #replacing the spaces in query result with ,
 
 if query: #Activates the code below on hitting Enter/Return in the search textbox
     try: #Exception handling 
