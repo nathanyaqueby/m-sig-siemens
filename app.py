@@ -22,28 +22,66 @@ st.markdown('<h1 style="padding-left: 10px; padding-bottom: 20px;">M-SIG Search 
 query = st.text_input('', help='Enter the search string and hit Enter/Return')
 query = query.replace(" ", ",") #replacing the spaces in query result with ,
 
+googlenews = GoogleNews()
+google_news = GNews()
+googlenews.enableException(True)
+googlenews = GoogleNews(lang='en', region='IN')
+googlenews.max_results=7
+
 if query: #Activates the code below on hitting Enter/Return in the search textbox
-    try: #Exception handling 
 
-        googlenews = GoogleNews()
-        googlenews.enableException(True)
-        googlenews = GoogleNews(lang='en', region='IN')
-        googlenews.max_results=7
-        googlenews.get_news(f'{query}')
-        result_list=googlenews.results()
-        google_news = GNews()
-        for i in range(0, len(result_list)):
-            article = google_news.get_full_article(url= 'http://'+result_list[i]['link'] )
-            try:
-                result_list[i]['content']=article.text
-            except:
-                result_list[i]['content']=""
+    googlenews.get_news(f'{query}')
+    result_list=googlenews.results()
+    for i in range(0, len(result_list)):
+        article = google_news.get_full_article(url= 'http://'+result_list[i]['link'] )
+        try:
+            result_list[i]['content']=article.text
+        except:
+            result_list[i]['content']=""
 
-        result_df = pd.DataFrame(result_list)
+    result_df = pd.DataFrame(result_list)
 
-        # Displaying the results in a table
-        st.markdown('<h3>Google News Search Results</h3>', unsafe_allow_html=True)
-        st.dataframe(result_df)
+    # Displaying the results in a table
+    st.markdown('<h3>Google News Search Results</h3>', unsafe_allow_html=True)
+
+    result_str = '<html><table style="border: none;">'  # Initializing the HTML code for displaying search results
+
+    for n,i in enumerate(result_list): #iterating through the search results
+        count_str = f'<b style="font-size:20px;">Search returned {len(result_list)} results</b>'
+
+        ########################################################
+        ######### HTML code to display search results ##########
+        ########################################################
+
+        result_str += f'<tr style="border: none;"><h3><a href="{i["link"]}" target="_blank">{i["title"]}</a></h3></tr>'+\
+        f'<tr style="border: none;"><strong style="color:green;">{i["media"]}</strong></tr>'+\
+        f'<tr style="border: none;"><td style="border: none;"></td></tr>'
+    result_str += '</table></html>'
+
+    st.markdown(f'{count_str}', unsafe_allow_html=True)
+    st.markdown(f'{result_str}', unsafe_allow_html=True)
+    st.dataframe(result_df)
+    # try: #Exception handling 
+
+    #     googlenews = GoogleNews()
+    #     googlenews.enableException(True)
+    #     googlenews = GoogleNews(lang='en', region='IN')
+    #     googlenews.max_results=7
+    #     googlenews.get_news(f'{query}')
+    #     result_list=googlenews.results()
+    #     google_news = GNews()
+    #     for i in range(0, len(result_list)):
+    #         article = google_news.get_full_article(url= 'http://'+result_list[i]['link'] )
+    #         try:
+    #             result_list[i]['content']=article.text
+    #         except:
+    #             result_list[i]['content']=""
+
+    #     result_df = pd.DataFrame(result_list)
+
+    #     # Displaying the results in a table
+    #     st.markdown('<h3>Google News Search Results</h3>', unsafe_allow_html=True)
+    #     st.dataframe(result_df)
 
 
         # req = r.get(f"https://www.bing.com/search?q={query}",
@@ -86,10 +124,10 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         #     count_str = '<b style="font-size:20px;">Looks like an error!!</b>'
             
     #if an exception is raised, then an error message is displayed along with an empty data frame
-    except:
-        result_df = pd.DataFrame({"Title": "", "URL": "", "Description": ""}, index=[0])
-        result_str = '<html></html>'
-        count_str = '<b style="font-size:20px;">Looks like an error!!</b>'
+    # except:
+    #     result_df = pd.DataFrame({"Title": "", "URL": "", "Description": ""}, index=[0])
+    #     result_str = '<html></html>'
+    #     count_str = '<b style="font-size:20px;">Looks like an error!!</b>'
     
     # st.markdown(f'{count_str}', unsafe_allow_html=True)
     # st.markdown(f'{result_str}', unsafe_allow_html=True)
