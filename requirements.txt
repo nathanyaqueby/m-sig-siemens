@@ -4,3 +4,5 @@ requests
 beautifulsoup4==4.11.2
 GoogleNews==1.6.6
 gnews
+dotenv
+python-dotenv
