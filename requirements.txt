@@ -2,3 +2,6 @@ pandas==1.5.3
 streamlit==1.19.0
 requests==2.28.2
 beautifulsoup4==4.11.2
+GoogleNews==1.6.6
+gnews==0.2.7
+newspaper==0.1.0.7
