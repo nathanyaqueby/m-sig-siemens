@@ -45,9 +45,11 @@ with st.sidebar.form(key='Form1'):
                 "Energy efficiency is also a resource that can be used to provide other services, such as providing "
                 "electricity during times of peak demand.")
     
-    st.title("🌏 Gas efficiency")
+    st.title("🌏 Gas emisions")
     st.image("charts sig/2.png", width=250)
-    st.markdown("Gas efficiency is the goal of reducing the amount of gas required to provide products and services.")
+    st.markdown("Gas emissions are the gases that are released into the atmosphere by human activities. "
+                "These gases are released into the atmosphere by burning fossil fuels, "
+                "such as coal, oil, and natural gas, and by deforestation.")
 
     generator = st.form_submit_button(label='Download the report')	
 
