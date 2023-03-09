@@ -29,7 +29,7 @@ st.markdown('<h1 style=padding-bottom: 20px;">🔍 M-SIG Search Engine Scraper</
 st.write("Write a query to search for news articles on the topic of your choice. ")
 
 query = st.text_input('', help='Enter the search string and hit Enter/Return')
-query = query.replace(" ", ",") #replacing the spaces in query result with ,
+query = query.replace(" ", "+") #replacing the spaces in query result with + sign
 
 googlenews = GoogleNews()
 google_news = GNews()
@@ -95,6 +95,8 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         result_df = pd.DataFrame({"Title": "", "URL": "", "Description": ""}, index=[0])
         result_str = '<html></html>'
         count_str = '<b style="font-size:20px;">Looks like an error!!</b>'
+    
+
     
     st.markdown(f'{count_str}', unsafe_allow_html=True)
     st.markdown(f'{result_str}', unsafe_allow_html=True)
