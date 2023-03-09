@@ -7,3 +7,4 @@ gnews
 python-dotenv
 pymongo
 altair
+streamlit-chat
