@@ -22,13 +22,21 @@ st.set_page_config(
     }
 )
 
-st.markdown("Welcome to *_M-SIG_*! Click on the menu on the top right corner to get help or report a bug. "
-            "Read more about our project on [GitHub](https://github.com/nathanyaqueby/m-sig-siemens).")
+st.markdown('<h1 style=padding-bottom: 20px;">🔍 M-SIG: Sustainable Information Grabber</h1>', unsafe_allow_html=True)
+st.markdown("Welcome to *_M-SIG_*! Here, you can:")
+st.markdown("- Write a query to search for news articles on the topic of your choice")
+st.markdown("- Analyze agricultural production in multiple countries.")
+st.markdown("- Read more about our project on [GitHub](https://github.com/nathanyaqueby/m-sig-siemens).")
 
-st.markdown('<h1 style=padding-bottom: 20px;">🔍 M-SIG Search Engine Scraper</h1>', unsafe_allow_html=True)
-st.write("Write a query to search for news articles on the topic of your choice. ")
+st.markdown('''
+<style>
+[data-testid="stMarkdownContainer"] ul{
+    padding-left:40px;
+}
+</style>
+''', unsafe_allow_html=True)
 
-query = st.text_input('', help='Enter the search string and hit Enter/Return')
+query = st.text_input('Insert your query here', help='Enter the search string and hit Enter/Return')
 query = query.replace(" ", "+") #replacing the spaces in query result with + sign
 
 # googlenews = GoogleNews()
