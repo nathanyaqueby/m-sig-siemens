@@ -11,7 +11,7 @@ from gnews import GNews
 user_agent = 'Mozilla/5.0'
 
 st.set_page_config(
-    page_title="🔍 M-SIG: Sustainable Information Grabber",
+    page_title="🔍 M-SIG: Sustainability Information Grabber",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -22,7 +22,7 @@ st.set_page_config(
     }
 )
 
-st.markdown('<h1 style=padding-bottom: 20px;">🔍 M-SIG: Sustainable Information Grabber</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style=padding-bottom: 20px;">🔍 M-SIG: Sustainability Information Grabber</h1>', unsafe_allow_html=True)
 st.markdown("Welcome to *_M-SIG_*! Here, you can:")
 st.markdown("- Write a query to search for news articles on the topic of your choice")
 st.markdown("- Analyze agricultural production in multiple countries.")
