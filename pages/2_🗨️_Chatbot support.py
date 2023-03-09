@@ -39,7 +39,7 @@ def query(payload):
 	return response.json()
 
 def get_text():
-    input_text = st.text_input("You: ","Hello, how are you?", key="input")
+    input_text = st.text_input("You: ","I need help building a sustainable company", key="input")
     return input_text 
 
 
@@ -53,8 +53,6 @@ if user_input:
             "text": user_input,
         },"parameters": {"repetition_penalty": 1.33},
     })
-
-    st.write(output)
 
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output["generated_text"])
