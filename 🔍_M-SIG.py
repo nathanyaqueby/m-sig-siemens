@@ -40,13 +40,13 @@ googlenews.max_results=7
 # sidebar
 with st.sidebar.form(key='Form1'):
     st.title("🌏 Energy efficiency")
-    st.image("charts sig\\1.png", width=250)
+    st.image("charts sig/1.png", width=250)
     st.markdown("Energy efficiency is the goal of reducing the amount of energy required to provide products and services. "
                 "Energy efficiency is also a resource that can be used to provide other services, such as providing "
                 "electricity during times of peak demand.")
     
     st.title("🌏 Gas efficiency")
-    st.image("charts sig\\2.png", width=250)
+    st.image("charts sig/2.png", width=250)
     st.markdown("Gas efficiency is the goal of reducing the amount of gas required to provide products and services.")
 
     generator = st.form_submit_button(label='Download the report')	
