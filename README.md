@@ -7,7 +7,7 @@ Made during the [Siemens Tech for Sustainability 2023](https://ecosystem.siemens
 ![](interface.png)
 
 ## 📌 How to run
-- Click on [this link](https://nathanyaqueby-sig-siemens-app-q3rk1f.streamlit.app/)
+- Click on [this link](https://m-sig-siemens.streamlit.app/)
 - Enter a sustainable query
 - Analyze different agricultural production rates of multiple countries
 - Consult with a chatbot
