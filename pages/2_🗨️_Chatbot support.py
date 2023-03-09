@@ -54,6 +54,8 @@ if user_input:
         },"parameters": {"repetition_penalty": 1.33},
     })
 
+    print(output)
+
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output["generated_text"])
 
