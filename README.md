@@ -4,14 +4,10 @@ An all-in-one place digital platform that would help equip MSMEs with the power 
 
 Made during the [Siemens Tech for Sustainability 2023](https://ecosystem.siemens.com/techforsustainability/hackathon/overview?linkId=300000004465793) Hackathon.
 
-## How to run
-- Click on [this link](https://nathanyaqueby-sig-siemens-app-q3rk1f.streamlit.app/)
-- Enter a sustainable keyword
-- tba.
+![](interface.png)
 
-## Team
-- 
-- 
-- 
-- 
-- 
+## 📌 How to run
+- Click on [this link](https://nathanyaqueby-sig-siemens-app-q3rk1f.streamlit.app/)
+- Enter a sustainable query
+- Analyze different agricultural production rates of multiple countries
+- Consult with a chatbot
