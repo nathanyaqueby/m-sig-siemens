@@ -31,11 +31,11 @@ st.write("Write a query to search for news articles on the topic of your choice.
 query = st.text_input('', help='Enter the search string and hit Enter/Return')
 query = query.replace(" ", "+") #replacing the spaces in query result with + sign
 
-googlenews = GoogleNews()
-google_news = GNews()
-googlenews.enableException(True)
-googlenews = GoogleNews(lang='en', region='IN')
-googlenews.max_results=7
+# googlenews = GoogleNews()
+# google_news = GNews()
+# googlenews.enableException(True)
+# googlenews = GoogleNews(lang='en', region='IN')
+# googlenews.max_results=7
 
 # sidebar
 with st.sidebar.form(key='Form1'):
@@ -72,6 +72,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
                 href = h2.find('a').get('href') #title's URL of the individual search result
                 cite = f'{href[:50]}...' if len(href) >= 50 else href # cite with first 20 chars of the URL
                 url_txt = h2.find('a').text #title's text of the individual search result
+
                 #In a few cases few individual search results doesn't have a description. In such cases the description would be blank
                 description = "" if individual_search_result.find('p') is None else individual_search_result.find('p').text
                 #Appending the result data frame after processing each individual search result
@@ -82,7 +83,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
                 ########################################################
                 result_str += f'<tr style="border: none;"><h3><a href="{href}" target="_blank">{url_txt}</a></h3></tr>'+\
                 f'<tr style="border: none;"><strong style="color:green;">{cite}</strong></tr>'+\
-                f'<tr style="border: none;">{description}</tr>'+\
+                f'<br><tr style="border: none;">{description}</tr>'+\
                 f'<tr style="border: none;"><td style="border: none;"></td></tr>'
             result_str += '</table></html>'
             
@@ -98,11 +99,9 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         result_str = '<html></html>'
         count_str = '<b style="font-size:20px;">Looks like an error!!</b>'
     
-
-    
     st.markdown(f'{count_str}', unsafe_allow_html=True)
     st.markdown(f'{result_str}', unsafe_allow_html=True)
-    st.markdown('<h3>Data Frame of the above search result</h3>', unsafe_allow_html=True)
+    st.markdown('<h3>Dataframe of the above search result</h3>', unsafe_allow_html=True)
     st.dataframe(result_df)
 
 
