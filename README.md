@@ -4,6 +4,8 @@ An all-in-one place digital platform that would help equip MSMEs with the power 
 
 Made during the [Siemens Tech for Sustainability 2023](https://ecosystem.siemens.com/techforsustainability/hackathon/overview?linkId=300000004465793) Hackathon.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_red.svg)](https://m-sig-siemens.streamlit.app)
+
 ![](interface.png)
 
 ## 📌 How to run
