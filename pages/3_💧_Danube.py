@@ -26,9 +26,14 @@ for article in articles:
 # Combine all the articles into one string
 text_combined = ' '.join(article_texts)
 
-# Step 2: Create a Word Cloud
-wordcloud = WordCloud(width=800, height=800, background_color='white', stopwords=set(['die', 'der', 'und']), min_font_size=10).generate(text_combined)
+# Add diagnostic prints
+st.write(f"Number of articles fetched: {len(article_texts)}")
+st.write(f"First 500 characters of combined text: {text_combined[:500]}")  # Displaying first 500 characters for checking
 
-# Display the Word Cloud with Streamlit
-st.write("# Word Cloud for Articles on Danube River from heute.at")
-st.pyplot(wordcloud.to_image())
+# Step 2: Create a Word Cloud
+if len(text_combined) > 0:  # Check if the combined text is not empty
+    wordcloud = WordCloud(width=800, height=800, background_color='white', stopwords=set(['die', 'der', 'und']), min_font_size=10).generate(text_combined)
+    st.write("# Word Cloud for Articles on Danube River from heute.at")
+    st.pyplot(wordcloud.to_image())
+else:
+    st.write("No content fetched to generate a word cloud!")
