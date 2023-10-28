@@ -8,3 +8,5 @@ python-dotenv
 pymongo
 altair
 streamlit-chat
+wordcloud
+matplotlib
