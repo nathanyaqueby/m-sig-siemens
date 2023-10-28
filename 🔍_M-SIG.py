@@ -61,7 +61,10 @@ with st.sidebar.form(key='Form1'):
 
     generator = st.form_submit_button(label='Download the report')	
 
+count_str = '<b style="font-size:20px;">Initiating search...</b>'
+
 if query: #Activates the code below on hitting Enter/Return in the search textbox
+
     try:#Exception handling 
         req = r.get(f"https://www.bing.com/search?q={query}",
                     headers = {"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"})
@@ -99,7 +102,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         else:
             result_df = pd.DataFrame({"Title": "", "URL": "", "Description": ""}, index=[0])
             result_str = '<html></html>'
-            count_str = '<b style="font-size:20px;">Looks like an error!!</b>'
+            count_str = '<b style="font-size:20px;">Looks like an error with the request!</b>'
             
     #if an exception is raised, then an error message is displayed along with an empty data frame
     except:
